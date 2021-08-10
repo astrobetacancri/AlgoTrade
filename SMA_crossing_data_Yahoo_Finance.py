@@ -2,16 +2,19 @@
 # This is a Pythong Notebook on Google Colab
 !pip install yahoofinance
 
+# Import Yahoo Finance 
 import yahoofinance as yf
 profile = yf.AssetProfile('AAPL')
 profile.to_csv('AAPL-profile.csv')
 
+# Import libraries 
 import pandas as pd
 import numpy as np 
 from datetime import datetime 
 import matplotlib.pyplot as plt
 %matplotlib inline
 
+# Define historial price dataframe 
 historical = yf.HistoricalPrices('AAPL', '2020-01-01', '2021-06-21')
 dfs = historical.to_dfs()
 df = dfs['Historical Prices']
@@ -20,6 +23,7 @@ AAPL = df
 df.index = pd.to_datetime(df.index)
 AAPL
 
+# Output of AAPL dataframe 
 Open	High	Low	Close	Adj Close	Volume
 Date						
 2020-01-02	74.059998	75.150002	73.797501	75.087502	74.207466	135480400
@@ -35,6 +39,7 @@ Date
 2021-06-18	130.710007	131.509995	130.240005	130.460007	130.460007	108787300
 369 rows × 6 columns
 
+# Define graph
 fig1 = plt.figure(figsize=(15,10))
 plt.xlabel('Date')
 plt.ylabel('Price ($)')
