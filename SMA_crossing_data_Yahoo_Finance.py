@@ -1,4 +1,5 @@
 # Install Yahoo Finance
+# This is a Pythong Notebook on Google Colab
 !pip install yahoofinance
 
 import yahoofinance as yf
